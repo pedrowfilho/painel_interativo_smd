@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:painel_interativo_smd/config/responsive.dart';
 import 'package:painel_interativo_smd/style/colors.dart';
 
 class BarChartComponent extends StatelessWidget {
@@ -74,7 +75,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 10,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -87,7 +88,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 50,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -100,7 +101,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 30,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -113,7 +114,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 80,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -126,7 +127,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 60,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -139,7 +140,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 90,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -152,7 +153,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 20,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -165,7 +166,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 10,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -178,7 +179,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 80,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -191,7 +192,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 40,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -204,7 +205,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 60,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),
@@ -217,7 +218,7 @@ class BarChartComponent extends StatelessWidget {
                   y: 30,
                   colors: [Colors.black],
                   borderRadius: BorderRadius.circular(0),
-                  width: 40,
+                  width: Responsive.isDesktop(context) ? 40 : 10,
                   backDrawRodData: BackgroundBarChartRodData(
                       y: 90, show: true, colors: [AppColors.barBg]),
                 ),

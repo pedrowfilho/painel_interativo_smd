@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:painel_interativo_smd/config/responsive.dart';
 import 'package:painel_interativo_smd/style/colors.dart';
 
 import '../style/style.dart';
@@ -33,7 +34,7 @@ class Header extends StatelessWidget {
           flex: 1,
         ),
         Expanded(
-          flex: 1,
+          flex: Responsive.isDesktop(context) ? 1 : 2,
           child: TextField(
             decoration: InputDecoration(
                 filled: true,

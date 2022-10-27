@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:painel_interativo_smd/config/responsive.dart';
+import 'package:painel_interativo_smd/config/size_config.dart';
 import 'package:painel_interativo_smd/data.dart';
 import 'package:painel_interativo_smd/style/colors.dart';
 import 'package:painel_interativo_smd/style/style.dart';
@@ -8,9 +10,12 @@ class HistoryTable extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
+      scrollDirection:
+          Responsive.isDesktop(context) ? Axis.vertical : Axis.horizontal,
       child: SizedBox(
-        width: double.infinity,
+        width: Responsive.isDesktop(context)
+            ? double.infinity
+            : SizeConfig.screenWidth,
         child: Table(
           defaultVerticalAlignment: TableCellVerticalAlignment.middle,
           children: List.generate(

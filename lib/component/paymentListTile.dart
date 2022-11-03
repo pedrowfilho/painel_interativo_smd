@@ -6,10 +6,12 @@ import '../style/style.dart';
 
 class PaymentListTile extends StatelessWidget {
   final String? icon;
-  final String? label;
-  final String? amount;
+  final String? disciplina;
+  final String? professor;
+  final String? sala;
 
-  const PaymentListTile({required this.icon, this.label, this.amount});
+  const PaymentListTile(
+      {required this.icon, this.disciplina, this.professor, this.sala});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class PaymentListTile extends StatelessWidget {
         ),
       ),
       title: PrimaryText(
-        text: label!,
+        text: disciplina!,
         size: 14.0,
         fontWeight: FontWeight.w500,
       ),
@@ -37,15 +39,15 @@ class PaymentListTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           PrimaryText(
-            text: 'Prof. Diego / Clemilson',
+            text: professor!,
             size: 12,
             color: AppColors.secondary,
           ),
           PrimaryText(
-            text: amount!,
+            text: sala!,
             size: 14,
-            color: AppColors.black,
-            fontWeight: FontWeight.w500,
+            color: AppColors.primary,
+            fontWeight: FontWeight.w600,
           )
         ],
       ),

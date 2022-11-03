@@ -28,7 +28,7 @@ class PaymentDetailList extends StatelessWidget {
                   offset: Offset(15.0, 10.0))
             ],
           ),
-          child: Image.asset("assets/card.png"),
+          //child: Image.asset("assets/card.png"),
         ),
         SizedBox(
           height: SizeConfig.blockSizeVertical! * 5,
@@ -57,14 +57,15 @@ class PaymentDetailList extends StatelessWidget {
               recentActivities.length,
               (index) => PaymentListTile(
                     icon: recentActivities[index]["icon"],
-                    label: recentActivities[index]["label"],
-                    amount: recentActivities[index]["amount"],
+                    disciplina: recentActivities[index]["disciplina"],
+                    professor: recentActivities[index]["professor"],
+                    sala: recentActivities[index]["sala"],
                   )),
         ),
         SizedBox(
           height: SizeConfig.blockSizeVertical! * 5,
         ),
-        Column(
+        /*Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             PrimaryText(
@@ -91,7 +92,7 @@ class PaymentDetailList extends StatelessWidget {
                     label: upcomingPayments[index]["label"],
                     amount: upcomingPayments[index]["amount"],
                   )),
-        ),
+        ),*/
       ],
     );
   }

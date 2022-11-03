@@ -3,6 +3,7 @@ import 'package:painel_interativo_smd/component/barChartComponent.dart';
 import 'package:painel_interativo_smd/component/historyTable.dart';
 import 'package:painel_interativo_smd/config/responsive.dart';
 import 'package:painel_interativo_smd/config/size_config.dart';
+import 'package:painel_interativo_smd/mapadesalas.dart';
 import 'package:painel_interativo_smd/style/colors.dart';
 import 'package:painel_interativo_smd/component/appBarActionItems';
 import 'package:painel_interativo_smd/style/style.dart';
@@ -21,11 +22,11 @@ class Dashboard extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       key: _drawerKey,
-      drawer: SizedBox(
+      /*drawer: SizedBox(
         width: 100,
         child: SideMenu(),
-      ),
-      appBar: !Responsive.isDesktop(context)
+      ),*/
+      /*appBar: !Responsive.isDesktop(context)
           ? AppBar(
               elevation: 0,
               backgroundColor: AppColors.white,
@@ -42,16 +43,16 @@ class Dashboard extends StatelessWidget {
                 AppBarActionItems(),
               ],
             )
-          : PreferredSize(child: SizedBox(), preferredSize: Size.zero),
+          : PreferredSize(child: SizedBox(), preferredSize: Size.zero),*/
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (Responsive.isDesktop(context))
+            /*if (Responsive.isDesktop(context))
               Expanded(
                 flex: 1,
                 child: SideMenu(),
-              ),
+              ),*/
             Expanded(
               flex: 10,
               child: SafeArea(
@@ -71,21 +72,39 @@ class Dashboard extends StatelessWidget {
                           runSpacing: 20,
                           alignment: WrapAlignment.spaceBetween,
                           children: [
-                            InfoCard(
-                                icon: 'assets/credit-card.svg',
-                                label: 'Transafer via \nCard number',
-                                amount: '\$1200'),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MapaDeSalas()),
+                                );
+                              },
+                              child: InfoCard(
+                                  icon: 'assets/credit-card.svg',
+                                  label: 'Mapa de salas',
+                                  amount: '\$1200'),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => MapaDeSalas()),
+                                );
+                              },
+                              child: InfoCard(
+                                  icon: 'assets/bank.svg',
+                                  label: 'Pesquisa',
+                                  amount: '\$150'),
+                            ),
                             InfoCard(
                                 icon: 'assets/transfer.svg',
-                                label: 'Transafer via \nOnline Banks',
-                                amount: '\$150'),
-                            InfoCard(
-                                icon: 'assets/bank.svg',
-                                label: 'Transafer \nSame Bank',
+                                label: 'Notícias',
                                 amount: '\$1500'),
                             InfoCard(
                                 icon: 'assets/invoice.svg',
-                                label: 'Transafer to \nOther Bank',
+                                label: 'Docs',
                                 amount: '\$1500'),
                           ],
                         ),
@@ -93,7 +112,7 @@ class Dashboard extends StatelessWidget {
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 4,
                       ),
-                      Row(
+                      /*Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -107,7 +126,7 @@ class Dashboard extends StatelessWidget {
                                 color: AppColors.secondary,
                               ),
                               PrimaryText(
-                                  text: '\$1500',
+                                  text: 'Notícias',
                                   size: 30,
                                   fontWeight: FontWeight.w800),
                             ],
@@ -129,7 +148,7 @@ class Dashboard extends StatelessWidget {
                       ),
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 5,
-                      ),
+                      ),*/
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -165,7 +184,7 @@ class Dashboard extends StatelessWidget {
                   child: SingleChildScrollView(
                     padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
                     child: Column(
-                      children: [AppBarActionItems(), PaymentDetailList()],
+                      children: [PaymentDetailList()],
                     ),
                   ),
                 ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:painel_interativo_smd/config/responsive.dart';
 import 'package:painel_interativo_smd/style/colors.dart';
-
 import '../style/style.dart';
 
 class Header extends StatelessWidget {
@@ -18,12 +17,12 @@ class Header extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               PrimaryText(
-                text: 'Dashboard',
-                size: 30.0,
+                text: 'Checkpoint',
+                size: 35.0,
                 fontWeight: FontWeight.w800,
               ),
               PrimaryText(
-                text: 'Projeto Dashboard',
+                text: 'Sistemas e Mídias Digitais - UFC',
                 size: 16.0,
                 color: AppColors.secondary,
               )

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:painel_interativo_smd/component/barChartComponent.dart';
 import 'package:painel_interativo_smd/component/historyTable.dart';
 import 'package:painel_interativo_smd/config/responsive.dart';
 import 'package:painel_interativo_smd/config/size_config.dart';
+import 'package:painel_interativo_smd/main.dart';
 import 'package:painel_interativo_smd/mapadesalas.dart';
 import 'package:painel_interativo_smd/style/colors.dart';
 import 'package:painel_interativo_smd/component/appBarActionItems';
@@ -14,15 +14,15 @@ import 'component/paymentDetailList.dart';
 import 'component/sidemenu.dart';
 
 class Dashboard extends StatelessWidget {
-  GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  //GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
   //const MyWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      key: _drawerKey,
-      /*drawer: SizedBox(
+      /*key: _drawerKey,
+      drawer: SizedBox(
         width: 100,
         child: SideMenu(),
       ),*/
@@ -72,7 +72,8 @@ class Dashboard extends StatelessWidget {
                           runSpacing: 20,
                           alignment: WrapAlignment.spaceBetween,
                           children: [
-                            GestureDetector(
+                            InkWell(
+                              borderRadius: BorderRadius.circular(20),
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -85,7 +86,8 @@ class Dashboard extends StatelessWidget {
                                   label: 'Mapa de salas',
                                   amount: '\$1200'),
                             ),
-                            GestureDetector(
+                            InkWell(
+                              borderRadius: BorderRadius.circular(20),
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -104,7 +106,7 @@ class Dashboard extends StatelessWidget {
                                 amount: '\$1500'),
                             InfoCard(
                                 icon: 'assets/invoice.svg',
-                                label: 'Docs',
+                                label: 'Eventos',
                                 amount: '\$1500'),
                           ],
                         ),
@@ -149,7 +151,7 @@ class Dashboard extends StatelessWidget {
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 5,
                       ),*/
-                      Column(
+                      /*Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           PrimaryText(
@@ -167,7 +169,7 @@ class Dashboard extends StatelessWidget {
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 3,
                       ),
-                      HistoryTable(),
+                      HistoryTable(),*/
                       if (!Responsive.isDesktop(context)) PaymentDetailList()
                     ],
                   ),

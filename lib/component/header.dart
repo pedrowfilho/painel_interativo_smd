@@ -32,7 +32,7 @@ class Header extends StatelessWidget {
         Spacer(
           flex: 1,
         ),
-        Expanded(
+        /*Expanded(
           flex: Responsive.isDesktop(context) ? 1 : 2,
           child: TextField(
             decoration: InputDecoration(
@@ -53,7 +53,7 @@ class Header extends StatelessWidget {
                 hintStyle:
                     TextStyle(color: AppColors.secondary, fontSize: 14.0)),
           ),
-        )
+        )*/
       ],
     );
   }

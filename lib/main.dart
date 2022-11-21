@@ -1,14 +1,16 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:painel_interativo_smd/style/colors.dart';
 
 import 'dashboard.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  //const MyApp({super.key});
 
   // This widget is the root of your application.
   @override

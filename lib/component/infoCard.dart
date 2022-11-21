@@ -16,13 +16,15 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints:
-          BoxConstraints(minWidth: Responsive.isDesktop(context) ? 200 : 155),
+      constraints: BoxConstraints(
+          minWidth: Responsive.isDesktop(context)
+              ? 200
+              : SizeConfig.screenWidth! / 2 - 40),
       padding: EdgeInsets.only(
-          top: 20.0,
-          left: 20.0,
-          bottom: 20.0,
-          right: Responsive.isDesktop(context) ? 40 : 20),
+          top: 20,
+          bottom: 20,
+          left: 20,
+          right: Responsive.isMobile(context) ? 20 : 40),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20.0),
         color: AppColors.white,
@@ -36,10 +38,11 @@ class InfoCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SvgPicture.asset(
             icon!,
+            color: Colors.blue[600],
             width: 35.0,
           ),
           SizedBox(
@@ -47,11 +50,9 @@ class InfoCard extends StatelessWidget {
           ),
           PrimaryText(
             text: label!,
-            color: AppColors.secondary,
-            size: 16.0,
-          ),
-          SizedBox(
-            height: SizeConfig.blockSizeVertical! * 2,
+            color: AppColors.primary,
+            fontWeight: FontWeight.w500,
+            size: 20.0,
           ),
           //PrimaryText(text: amount!, fontWeight: FontWeight.w700, size: 18)
         ],

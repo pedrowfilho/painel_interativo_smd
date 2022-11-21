@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:painel_interativo_smd/component/clock.dart';
 import 'package:painel_interativo_smd/config/responsive.dart';
 import 'package:painel_interativo_smd/style/colors.dart';
 import '../style/style.dart';
@@ -23,8 +24,9 @@ class Header extends StatelessWidget {
               ),
               PrimaryText(
                 text: 'Sistemas e Mídias Digitais - UFC',
-                size: 16.0,
-                color: AppColors.secondary,
+                size: 18.0,
+                color: AppColors.primary,
+                fontWeight: FontWeight.w400,
               )
             ],
           ),
@@ -32,28 +34,6 @@ class Header extends StatelessWidget {
         Spacer(
           flex: 1,
         ),
-        /*Expanded(
-          flex: Responsive.isDesktop(context) ? 1 : 2,
-          child: TextField(
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: AppColors.white,
-                contentPadding: EdgeInsets.only(left: 40.0, right: 5),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: AppColors.white)),
-                focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: BorderSide(color: AppColors.white)),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: AppColors.black,
-                ),
-                hintText: 'buscar',
-                hintStyle:
-                    TextStyle(color: AppColors.secondary, fontSize: 14.0)),
-          ),
-        )*/
       ],
     );
   }

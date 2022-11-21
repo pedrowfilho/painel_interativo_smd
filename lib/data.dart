@@ -1,4 +1,4 @@
-const recentActivities = [
+const proximasAulas = [
   {
     "icon": 'assets/drop.svg',
     "disciplina": 'Disciplina',

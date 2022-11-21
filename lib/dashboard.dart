@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:painel_interativo_smd/carousel.dart';
 import 'package:painel_interativo_smd/component/historyTable.dart';
 import 'package:painel_interativo_smd/config/responsive.dart';
 import 'package:painel_interativo_smd/config/size_config.dart';
 import 'package:painel_interativo_smd/main.dart';
 import 'package:painel_interativo_smd/mapadesalas.dart';
+import 'package:painel_interativo_smd/pesquisa.dart';
 import 'package:painel_interativo_smd/style/colors.dart';
 import 'package:painel_interativo_smd/component/appBarActionItems';
 import 'package:painel_interativo_smd/style/style.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import 'component/header.dart';
 import 'component/infoCard.dart';
-import 'component/paymentDetailList.dart';
+import 'component/sideview.dart';
 import 'component/sidemenu.dart';
 
 class Dashboard extends StatelessWidget {
@@ -19,40 +23,15 @@ class Dashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    WebViewController controller;
+    final Uri url = Uri.parse(
+        'https://forms.zohopublic.com/checkpoint/form/Avaliaodependnciasdocurso/formperma/H0gPoUk0MMGTHtELOnBIuBDti5hiupMkZeGo7JLAIOA');
     SizeConfig().init(context);
     return Scaffold(
-      /*key: _drawerKey,
-      drawer: SizedBox(
-        width: 100,
-        child: SideMenu(),
-      ),*/
-      /*appBar: !Responsive.isDesktop(context)
-          ? AppBar(
-              elevation: 0,
-              backgroundColor: AppColors.white,
-              leading: IconButton(
-                onPressed: () {
-                  _drawerKey.currentState?.openDrawer();
-                },
-                icon: Icon(
-                  Icons.menu,
-                  color: AppColors.black,
-                ),
-              ),
-              actions: [
-                AppBarActionItems(),
-              ],
-            )
-          : PreferredSize(child: SizedBox(), preferredSize: Size.zero),*/
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /*if (Responsive.isDesktop(context))
-              Expanded(
-                flex: 1,
-                child: SideMenu(),
-              ),*/
             Expanded(
               flex: 10,
               child: SafeArea(
@@ -65,11 +44,15 @@ class Dashboard extends StatelessWidget {
                       SizedBox(
                         height: SizeConfig.blockSizeVertical! * 4,
                       ),
+                      Carousel(),
+                      SizedBox(
+                        height: SizeConfig.blockSizeVertical! * 2,
+                      ),
                       SizedBox(
                         width: SizeConfig.screenWidth,
                         child: Wrap(
-                          spacing: 20,
-                          runSpacing: 20,
+                          spacing: 12,
+                          runSpacing: 12,
                           alignment: WrapAlignment.spaceBetween,
                           children: [
                             InkWell(
@@ -82,95 +65,50 @@ class Dashboard extends StatelessWidget {
                                 );
                               },
                               child: InfoCard(
-                                  icon: 'assets/credit-card.svg',
-                                  label: 'Mapa de salas',
-                                  amount: '\$1200'),
+                                icon: 'assets/mapa-de-sala.svg',
+                                label: 'Mapa',
+                              ),
                             ),
                             InkWell(
                               borderRadius: BorderRadius.circular(20),
                               onTap: () {
-                                Navigator.push(
+                                /*SafeArea(
+                                  child: WebView(
+                                    initialUrl: "https://forms.zohopublic.com/checkpoint/form/Avaliaodependnciasdocurso/formperma/H0gPoUk0MMGTHtELOnBIuBDti5hiupMkZeGo7JLAIOA",
+                                    javascriptMode: JavascriptMode.unrestricted,
+                                    onWebViewCreated: (WebViewController wvc) {
+                                      controller = wvc;
+                                    },
+                                  ),
+                                );*/
+                                launchUrl(url);
+                                /*Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => MapaDeSalas()),
-                                );
+                                      builder: (context) => Pesquisa()),
+                                );*/
                               },
                               child: InfoCard(
-                                  icon: 'assets/bank.svg',
-                                  label: 'Pesquisa',
-                                  amount: '\$150'),
+                                icon: 'assets/pesquisa.svg',
+                                label: 'Pesquisa',
+                              ),
                             ),
                             InfoCard(
-                                icon: 'assets/transfer.svg',
-                                label: 'Notícias',
-                                amount: '\$1500'),
+                              icon: 'assets/invoice.svg',
+                              label: 'Notícias',
+                            ),
                             InfoCard(
-                                icon: 'assets/invoice.svg',
-                                label: 'Eventos',
-                                amount: '\$1500'),
+                              icon: 'assets/eventos.svg',
+                              label: 'Eventos',
+                            ),
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 4,
-                      ),
-                      /*Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              PrimaryText(
-                                text: 'Balance',
-                                size: 16,
-                                fontWeight: FontWeight.w400,
-                                color: AppColors.secondary,
-                              ),
-                              PrimaryText(
-                                  text: 'Notícias',
-                                  size: 30,
-                                  fontWeight: FontWeight.w800),
-                            ],
-                          ),
-                          PrimaryText(
-                            text: 'Past 30 DAYS',
-                            size: 16,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.secondary,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 3,
-                      ),
-                      Container(
-                        height: 180,
-                        child: BarChartComponent(),
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 5,
+                      /*SizedBox(
+                        height: SizeConfig.blockSizeVertical! * 2,
                       ),*/
-                      /*Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          PrimaryText(
-                            text: 'History',
-                            size: 30,
-                            fontWeight: FontWeight.w800,
-                          ),
-                          PrimaryText(
-                            text: 'Transaction of last 6 months',
-                            size: 16,
-                            color: AppColors.secondary,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: SizeConfig.blockSizeVertical! * 3,
-                      ),
-                      HistoryTable(),*/
-                      if (!Responsive.isDesktop(context)) PaymentDetailList()
+                      //HistoryTable(),
+                      if (!Responsive.isDesktop(context)) SideView()
                     ],
                   ),
                 ),
@@ -186,7 +124,7 @@ class Dashboard extends StatelessWidget {
                   child: SingleChildScrollView(
                     padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
                     child: Column(
-                      children: [PaymentDetailList()],
+                      children: [SideView()],
                     ),
                   ),
                 ),
